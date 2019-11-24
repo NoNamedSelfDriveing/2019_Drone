@@ -21,28 +21,21 @@ void Mixer()
     int i;
     int throttle_mapping;
 
-    if(SBUS.set_point[THROTTLE] < -98.0f)
+    if((SBUS.set_point[THROTTLE] < -98.0f) || (SBUS.frame_lost == 1 && SBUS.fail_safe ==1))
     {
       motor_pwm[0] = 1000;
       motor_pwm[1] = 1000;
       motor_pwm[2] = 1000;
       motor_pwm[3] = 1000;
     } 
-    else if(SBUS.frame_lost == 1 && SBUS.fail_safe ==1)
-    {
-      motor_pwm[0] = 1000;
-      motor_pwm[1] = 1000;
-      motor_pwm[2] = 1000;
-      motor_pwm[3] = 1000;      
-    }
     else
     {
       throttle_mapping = (int)SBUS.set_point[THROTTLE] * 5 + 1500;
       
-      motor_pwm[0] = - RPY.control_cmd[Roll] - RPY.control_cmd[Pitch] - RPY.control_cmd[Yaw] + throttle_mapping;
-      motor_pwm[1] = RPY.control_cmd[Roll] - RPY.control_cmd[Pitch] + RPY.control_cmd[Yaw] + throttle_mapping;
-      motor_pwm[2] = RPY.control_cmd[Roll] + RPY.control_cmd[Pitch] - RPY.control_cmd[Yaw] + throttle_mapping;
-      motor_pwm[3] = -RPY.control_cmd[Roll] + RPY.control_cmd[Pitch] + RPY.control_cmd[Yaw] + throttle_mapping;
+      motor_pwm[0] = - RPY.control_cmd[Roll] - RPY.control_cmd[Pitch] + RPY.control_cmd[Yaw] + throttle_mapping;
+      motor_pwm[1] = RPY.control_cmd[Roll] - RPY.control_cmd[Pitch] - RPY.control_cmd[Yaw] + throttle_mapping;
+      motor_pwm[2] = RPY.control_cmd[Roll] + RPY.control_cmd[Pitch] + RPY.control_cmd[Yaw] + throttle_mapping;
+      motor_pwm[3] = -RPY.control_cmd[Roll] + RPY.control_cmd[Pitch] - RPY.control_cmd[Yaw] + throttle_mapping;
     }
 
     for (i = 0;i < 4; i++)

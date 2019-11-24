@@ -14,7 +14,7 @@ LeaveTargetRunning=_ 0
 stlinkserialNo=42291043
 stlinkfoundProbes=
 [DebugChecksum]
-Checksum=1431841422
+Checksum=-437438160
 [Exceptions]
 StopOnUncaught=_ 0
 StopOnThrow=_ 0
