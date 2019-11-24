@@ -65,12 +65,12 @@ void Sensor_read()
       {
         Decoding_data();
        
-        printf("%d %.3d ",status,++sensor_counter);
-        printf("roll = %.4f pitch = %.4f yaw = %.4f ", SENSOR.angle[0], SENSOR.angle[1], SENSOR.angle[2]);
-        printf("gyrX = %.4f gyrY = %.4f gyrZ = %.4f ", SENSOR.rate[0], SENSOR.rate[1], SENSOR.rate[2]);
-        printf("accX = %.4f accY = %.4f accZ = %.4f ", SENSOR.acc[0], SENSOR.acc[1], SENSOR.acc[2]);
-        printf("lat = %.4f lon = %.4f ", SENSOR.gps[0], SENSOR.gps[1]);
-        printf("alt = %.4f\r\n",SENSOR.alt[0]);
+//        printf("%d %.3d ",status,++sensor_counter);
+//        printf("roll = %.4f pitch = %.4f yaw = %.4f ", SENSOR.angle[0], SENSOR.angle[1], SENSOR.angle[2]);
+//        printf("gyrX = %.4f gyrY = %.4f gyrZ = %.4f ", SENSOR.rate[0], SENSOR.rate[1], SENSOR.rate[2]);
+//        printf("accX = %.4f accY = %.4f accZ = %.4f ", SENSOR.acc[0], SENSOR.acc[1], SENSOR.acc[2]);
+//        printf("lat = %.4f lon = %.4f ", SENSOR.gps[0], SENSOR.gps[1]);
+//        printf("alt = %.4f\r\n",SENSOR.alt[0]);
         
         if(status == 1)
           sensor_data_head = (sensor_data_head + SENSOR_PACKET_SIZE)%SENSOR_DMA_SIZE;
@@ -152,13 +152,13 @@ void Decoding_data()
     SENSOR.angle[1] = MTIDATA.float_data[1];       //pitch
     SENSOR.angle[2] = MTIDATA.float_data[0];       //yaw
   
-    SENSOR.rate[0] = MTIDATA.float_data[4];       //gyrX
-    SENSOR.rate[1] = MTIDATA.float_data[5];       //gyrY
-    SENSOR.rate[2] = MTIDATA.float_data[3];       //gryZ
+    SENSOR.rate[0] = MTIDATA.float_data[8];       //gyrX
+    SENSOR.rate[1] = MTIDATA.float_data[7];       //gyrY
+    SENSOR.rate[2] = MTIDATA.float_data[6];       //gryZ
   
-    SENSOR.acc[0] = MTIDATA.float_data[8];        //accX
-    SENSOR.acc[1] = MTIDATA.float_data[7];        //accY
-    SENSOR.acc[2] = MTIDATA.float_data[6];        //accZ
+    SENSOR.acc[0] = MTIDATA.float_data[5];        //accX
+    SENSOR.acc[1] = MTIDATA.float_data[4];        //accY
+    SENSOR.acc[2] = MTIDATA.float_data[3];        //accZ
   }
   else if(status == 2)
   {
