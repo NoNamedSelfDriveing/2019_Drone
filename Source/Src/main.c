@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -27,8 +28,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "headers.h"
-//#include "pid_control.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,9 +48,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-_SENSOR SENSOR;
 _SBUS SBUS;
+_SENSOR SENSOR;
 _RPY RPY;
+_GAIN GAIN;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,7 +72,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  
   /* USER CODE END 1 */
   
 
@@ -94,45 +94,24 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM1_Init();
   MX_TIM6_Init();
   MX_TIM7_Init();
   MX_USART1_UART_Init();
+  MX_USART2_UART_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-   // Initialize();
-      HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
-      HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);  
-      HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);  
-      HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
-      
-     TIM1->CCR1 = 95;
-     TIM1->CCR2 = 95;
-     TIM1->CCR3 = 95;
-     TIM1->CCR4 = 95;
-     HAL_Delay(1000);
+
+  Initialize();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {/*
-     TIM1->CCR1 = 150;
-     TIM1->CCR2 = 150;
-     TIM1->CCR3 = 150;
-     TIM1->CCR4 = 150;
-     
-     HAL_Delay(2000);
-
-     TIM1->CCR1 = 95;
-     TIM1->CCR2 = 95;
-     TIM1->CCR3 = 95;
-     TIM1->CCR4 = 95;
-     
-     HAL_Delay(10000);
-     */
-
-
-
+  {    
+//    Sensor_read();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -187,8 +166,11 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_USART2
+                              |RCC_PERIPHCLK_USART3;
   PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
+  PeriphClkInitStruct.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -196,9 +178,22 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+#ifdef __GNUC__
+/* With GCC, small printf (option LD Linker->Libraries->Small printf
+   set to 'Yes') calls __io_putchar() */
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
 
+PUTCHAR_PROTOTYPE
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the USART3 and Loop until the end of transmission */
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
 
-
+  return ch;
+}
 /* USER CODE END 4 */
 
 /**

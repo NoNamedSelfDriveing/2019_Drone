@@ -4,7 +4,7 @@
 #include "headers.h"
 
 void Initialize();
-void Tim6_loop_1ms();
-void Tim7_loop_1sec();
+void Tim6Loop();
+void Tim7Loop();
 
 #endif

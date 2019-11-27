@@ -1,9 +1,13 @@
-#include "main_process.h"
+#include "headers.h"
+
+static uint16_t tim6_loop_counter = 0;
+uint16_t sensor_counter = 0;
 
 void Initialize()
 {
-  //init sbus
-  //init mti sensor
+  Sbus_init();  
+  Sensor_start();
+  
   Init_pwm();
   Init_gain_value();
   
@@ -11,15 +15,18 @@ void Initialize()
   HAL_TIM_Base_Start_IT(&htim7);
 }
 
-void Tim6_loop_1ms()
-{
-//sensor read
-//sbus read
+void Tim6Loop()
+{ 
+  HAL_GPIO_WritePin(GPIOE,GPIO_PIN_2,GPIO_PIN_RESET);
+  Sensor_read();
+  Sbus_read();
   Calc_pid_control();
   Mixer();
+  tim6_loop_counter++;
 }
 
-void Tim7_loop_1sec()
+void Tim7Loop()
 {
-  
+  tim6_loop_counter = 0;
+  sensor_counter = 0;
 }
