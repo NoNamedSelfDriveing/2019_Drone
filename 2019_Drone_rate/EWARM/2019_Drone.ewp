@@ -76,7 +76,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.70.2.11707</state>
+          <state>7.80.2.11970</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -648,7 +648,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>17</version>
+        <version>18</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -920,7 +920,7 @@
         </option>
         <option>
           <name>CrcAlgorithm</name>
-          <version>0</version>
+          <version>1</version>
           <state>1</state>
         </option>
         <option>
@@ -935,6 +935,10 @@
         <option>
           <name>IlinkLogCallGraph</name>
           <state>0</state>
+        </option>
+        <option>
+          <name>IlinkIcfFile_AltDefault</name>
+          <state></state>
         </option>
       </data>
     </settings>
@@ -989,6 +993,9 @@
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\sensor_mti3.c</name>
+      </file>
+      <file>
+        <name>$PROJ_DIR$\..\..\..\..\AVR\xbee\Src\xbee.c</name>
       </file>
       <file>
         <name>$PROJ_DIR$\..\Src\main.c</name>

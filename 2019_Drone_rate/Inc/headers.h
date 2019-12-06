@@ -18,6 +18,7 @@
 #include "sensor_mti3.h"
 #include "pid_control.h"
 #include "mixer.h"
+#include "xbee.h"
 
 extern _SBUS SBUS;
 extern _SENSOR SENSOR;
