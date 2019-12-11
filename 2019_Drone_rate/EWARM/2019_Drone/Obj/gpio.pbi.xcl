@@ -1,30 +1,30 @@
-"C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Src\gpio.c"
+"C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Src\gpio.c"
 -std=c99
 -ferror-limit=100
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\EWARM/../Inc
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\EWARM/../Inc
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\EWARM/../Drivers/STM32F7xx_HAL_Driver/Inc
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\EWARM/../Drivers/STM32F7xx_HAL_Driver/Inc
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\EWARM/../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\EWARM/../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\EWARM/../Drivers/CMSIS/Device/ST/STM32F7xx/Include
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\EWARM/../Drivers/CMSIS/Device/ST/STM32F7xx/Include
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\EWARM/../Drivers/CMSIS/Include
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\EWARM/../Drivers/CMSIS/Include
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\arm\inc\c
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Inc
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Inc
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Drivers\STM32F7xx_HAL_Driver\Inc
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Drivers\STM32F7xx_HAL_Driver\Inc
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Drivers\STM32F7xx_HAL_Driver\Inc\Legacy
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Drivers\CMSIS\Device\ST\STM32F7xx\Include
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Drivers\CMSIS\Device\ST\STM32F7xx\Include
 -I
-C:\Users\tlgus\Desktop\succesed sensor\2019_Drone_rate\Drivers\CMSIS\Include
+C:\Users\milkyway\Desktop\git\2019_Drone\2019_Drone_rate\Drivers\CMSIS\Include
 -DUSE_HAL_DRIVER=1
 -DSTM32F767xx=1
 -D__CHAR_BITS__=8

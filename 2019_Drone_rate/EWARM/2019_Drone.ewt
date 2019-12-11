@@ -1204,6 +1204,9 @@
       <file>
         <name>$PROJ_DIR$\..\Src\usart.c</name>
       </file>
+      <file>
+        <name>$PROJ_DIR$\..\..\..\..\AVR\xbee\Src\xbee.c</name>
+      </file>
     </group>
   </group>
   <group>

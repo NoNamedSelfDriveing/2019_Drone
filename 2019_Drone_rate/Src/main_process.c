@@ -22,6 +22,7 @@ void Tim6Loop()
   Sbus_read();
   Calc_pid_control();
   Mixer();
+  Send_xbee();
   tim6_loop_counter++;
 }
 
